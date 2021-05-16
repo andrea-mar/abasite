@@ -1,0 +1,75 @@
+{% extends 'abavblink/base.html' %}
+{% block title %}Account{% endblock %}
+
+{% block body %}
+
+    <!--Profile info view-->
+    <section id="profile-info">
+        <h3>{{ user.username }}</h3>
+        <p><small>Member since {{ user.date_joined.date}}</small></p>
+        <p><small>Last login {{ user.last_login.date }}</small></p>
+    </section>
+    
+    <div class="d-flex align-items-start account-navbar">
+        <div class="nav flex-column nav-pills me-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link btn-sm active" id="v-pills-posted-tab" data-bs-toggle="pill" data-bs-target="#v-pills-posted" type="button" role="tab" aria-controls="v-pills-posted" aria-selected="true">Posted jobs</button>
+            <button class="nav-link btn-sm" id="v-pills-saved-tab" data-bs-toggle="pill" data-bs-target="#v-pills-saved" type="button" role="tab" aria-controls="v-pills-saved" aria-selected="false">Saved jobs</button>
+            <button class="nav-link btn-sm" id="v-pills-account-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account-settings" type="button" role="tab" aria-controls="v-pills-account-settings" aria-selected="false">Account settings</button>
+            <button class="nav-link btn-sm" id="v-pills-delete-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-delete-account" type="button" role="tab" aria-controls="v-pills-delete-account" aria-selected="false">Delete account</button>
+        </div>
+
+        <div class="tab-content" id="v-pills-tabContent">
+            <!--Posted jobs view-->
+            <div class="tab-pane fade show active" id="postedJobsList">
+                <!-- Posted job listings section -->
+                <section class="jobsList" id="postedListSection">
+                </section>
+                <!-- Posted Pagination -->
+                <section class="jobsListPagination">
+                </section>
+            </div>
+            <!--Saved jobs view-->
+            <div class="tab-pane fade" id="savedJobsList">
+                <!-- Saved job listings section -->
+                <section class="jobsList" id="savedListSection">
+                </section>
+                <!-- Saved Pagination -->
+                <section class="jobsListPagination">
+                </section>
+            </div>
+            <!--Account settings view-->
+            <div class="tab-pane fade" id="accountSettings">
+                <form action="#!" method="post" class="col-6 ps-4">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <h6>Change password</h6>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input autofocus class="form-control form-control-sm" type="password" name="current-password" placeholder="Current password" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control form-control-sm" type="password" name="new-password" placeholder="New password" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input class="form-control form-control-sm" type="password" name="new-password-confirm" placeholder="Confirm new password" required>
+                    </div>
+                    <input class="btn btn-primary btn-sm mb-3" type="submit" name="change-password" value="Change password">
+                </form> 
+            </div>
+            <!--Delete account view-->
+            <div class="tab-pane fade" id="deleteAccount">
+                <div class="ps-4 pe-3">
+                    <p class="mb-3">When you delete your account we will delete your email, password, photos and posts.</p>
+                    <p class="mb-3">Once the account is deleted you will still be able to access the listings page but you will not be able to save or post jobs.</p>
+                    <p class="mb-3">Are you sure you want to delete your account?</p>
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <input name="delete-account" id="deleteAcccountButton" class="btn btn-sm btn-primary mb-3" type="submit" value="Yes, delete account.">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

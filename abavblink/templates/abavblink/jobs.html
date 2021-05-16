@@ -1,0 +1,22 @@
+{% extends 'abavblink/base.html' %}
+{% block title %}Jobs{% endblock %}
+
+{% block body %}
+
+    <!-- new job section -->
+    <section class="mb-3 pb-4 pt-4">
+        {% if user.is_authenticated %}
+            <a href="{% url 'newjob' user.username %}" class="btn btn-primary mb-3">Post a new job</a>
+        {% else %}
+            <h3>Please <a href="{% url 'login' %}">login</a> to post a new job.</h3>
+        {% endif %}
+    </section>
+    <!-- job listings section -->
+    <section class="jobsList">
+    </section>
+    <!-- Pagination -->
+    <section class="jobsListPagination">
+    </section>
+   
+
+{% endblock %}

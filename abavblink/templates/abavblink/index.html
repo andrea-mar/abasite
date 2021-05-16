@@ -1,0 +1,24 @@
+{% extends 'abavblink/base.html' %}
+
+{% block body %}
+<div class="home">
+    {% if user.is_authenticated %}
+      <h1>Welcome {{ user.username }}!</h1>
+    {% else %}
+      <h1>Welcome!</h1>
+    {% endif %}
+
+    <p><b>ABA-VB Link</b> aims to connect carers of individuals with developmental disabilities and ABA professionals
+    throughout the UK.</p>
+
+    <p>We understand how difficult setting up an ABA (Applied Behavioural Analysis) program is.
+    We hope that by creating this platform we can ease the logistics part, so you can get the
+    support you need as soon as possible.</p>
+
+    <p>If you are a parent looking for tutors or consultants or if you are professional offering ABA
+    services, please <a href="{% url 'jobs'%}" alt="job posts">browse our jobs</a> database or <a href="{% url 'jobs' %}" alt="post a job">add your job offer</a>.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

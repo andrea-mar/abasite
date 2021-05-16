@@ -1,0 +1,28 @@
+{% extends 'abavblink/base.html' %}
+
+{% block body %}
+    
+    <div class="mb-3 pb-4 pt-4">
+        {% if user.is_authenticated %}
+            <form action="{% url 'newjob' user.username %}" method="post" class="col-6">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <input autofocus class="form-control form-control-sm" type="text" name="title" placeholder="Title" required>
+                </div>
+                <div class="form-group mb-3">
+                    <input class="form-control form-control-sm" type="text" name="location" placeholder="Location" required>
+                </div>
+                <div class="form-group mb-3">
+                    <input class="form-control form-control-sm" type="text" name="contact" placeholder="Contact" required>
+                </div>
+                <div class="form-group mb-3">
+                    <textarea class="form-control form-control-sm" name="new-job-text" id="newJobText" cols="30" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                <input class="btn btn-primary mb-3" type="submit" value="Post">
+            </form> 
+        {% else %}
+            <h3>Please <a href="{% url 'login' %}">login</a> to post a new job.</h3>
+        {% endif %}
+    </div>
+    
+{% endblock %}

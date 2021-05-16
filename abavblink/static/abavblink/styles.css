@@ -1,0 +1,136 @@
+body {
+    background-color: #FCF8F6;
+    /*background-color: #f7f7f7;*/
+    color: #303436;
+    margin-top: 1rem;
+}
+footer {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+a {
+    text-decoration: none;
+    color:#278AB0;
+}
+a:hover {
+    text-decoration-line: underline;
+    color: #278AB0;
+}
+.home {
+    padding: 5rem!important;
+    height: 80%!important;
+}
+.home h1 {
+    margin-bottom: 2rem;
+}
+.home p {
+    margin-bottom: 1rem;
+}
+.main-nav {
+    padding: 1rem 0;
+}
+.main-nav a {
+    padding: 1rem 0 1rem 1rem;
+}
+.navbar-brand {
+    padding: 0!important;
+}
+.bg-lightblue {
+    background-color: #cbe9fb;
+}
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.main-body {
+    display: table;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  	padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    height: 100%;
+}
+.transform { /* not working */
+    -webkit-transition: all 5s ease;  
+    -moz-transition: all 5s ease;  
+    -o-transition: all 5s ease;  
+    -ms-transition: all 5s ease;  
+    transition: all 5s ease;
+}
+.transform-delete {
+    display: none;
+}
+.list-group-item {
+    position: relative;
+    list-style-type: none;
+    background-color: #FCF8F6;
+    color: inherit;
+    border: none;
+    border-bottom: 1px solid #cbe9fb; 
+}
+
+.list-group-item li {
+    padding-left: 1rem;
+}
+
+.job-listing-text {
+    margin-top: 1em;
+    margin-bottom: .5em;
+    line-height: 1.4em;
+}
+
+.job-location-pin {
+    font-weight: normal;
+}
+
+.account-navbar button {
+    border-radius: 0!important;
+    border-right: 1px solid #cbe9fb!important;
+    border-top: 1px solid #cbe9fb!important;
+
+}
+
+.nav-link.active {
+    background-color: #278AB0!important;
+}
+
+.account-navbar .tab-content {
+    width: 80%;
+}
+
+/* buttons */
+.btn-primary {
+    background-color: #2789b0b2;
+    border-color: #2789b0b2;
+}
+.btn-primary:hover {
+    background-color: #278AB0;
+    border-color: #278AB0;
+}
+
+/* icons */
+.fa-clock, .fa-id-card, .fa-map-marker-alt, .fa-bookmark, .fa-trash-alt {
+    padding-inline-end: 1rem;
+}
+
+.fa-bookmark, .fa-trash-alt {
+    position: absolute;
+    color:#278AB0;
+    top: 0;
+    left: .5rem;
+    font-size: large;
+    margin-top: .6rem;
+}
+
+
+#profile-info {
+    padding: 0 0 2em 0;
+}
+
+

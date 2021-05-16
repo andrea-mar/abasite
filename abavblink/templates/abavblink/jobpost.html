@@ -1,0 +1,16 @@
+{% extends 'abavblink/base.html' %}
+
+{% block body %}
+
+    <div id="{{ job.id }}" class="list-group-item">
+        <li>
+            <h5 id="job-title-{{ job.id }}">{{ job.title }}</h5>
+            <p id="job-location-{{ job.id }}" class="fas fa-map-marker-alt"><span class="job-location-pin"> {{ job.location }}</span></p>
+            <p id="job-contact-{{ job.id }}" class="far fa-id-card"> {{ job.contact }}</p>
+            <p id="job-timestamp-{{ job.id }}" class="far fa-clock"> Posted on {{ job.timestamp }} by {{ job.user_id }}</p>
+            <p id="job-text-{{ job.id }}" class="job-listing-text">{{ job.text }}</p>
+        </li>
+        <p id="save-btn-{{ job.id }}" class="far fa-bookmark"></p>
+    </div>
+
+{% endblock %}

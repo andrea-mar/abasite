@@ -70,6 +70,11 @@ function displayJobs(jobs, link) {
     const jobsListDiv = document.createElement('div')
     jobsListDiv.className = 'list-group'
 
+    // if there are no job posts show user a message
+    if (jobs.length < 4) {
+        jobsListDiv.innerHTML = `<h5>This job list is empty.</h5>`
+    }
+
     for (let i = 0; i < jobs.length; i++) {
         if (jobs[i].user_id != undefined) {
             const jobEntryDiv = document.createElement('div')

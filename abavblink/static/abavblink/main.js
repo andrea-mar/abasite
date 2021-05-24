@@ -117,6 +117,16 @@ function paginationNavigation(jobs, page, link) {
 
 function showJobList(link, page) {
     loadJobs(link, page).then(jobs => {   
+        if (jobs.length < 4) {
+            jobsListPagination.forEach(elem => {
+                elem.style.display = 'none'
+            })
+        } else {
+            jobsListPagination.forEach(elem => {
+                elem.style.display = 'block'
+            })
+        }
+        
         jobsList.forEach(element => {
             element.innerHTML = ''
             element.append(displayJobs(jobs, link))

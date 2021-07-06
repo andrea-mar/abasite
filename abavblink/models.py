@@ -15,6 +15,7 @@ class Job(models.Model):
     contact = models.CharField(max_length=250)
     text = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+    verified = models.BooleanField(default=False)
     saved_list = models.ManyToManyField(User, blank=True, related_name="saved_jobs")
 
     def serialize(self): 

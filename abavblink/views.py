@@ -81,7 +81,11 @@ def newjob(request, username):
             text = request.POST['new-job-text'],
         )
         job.save()
-        return HttpResponseRedirect(reverse('jobs')) 
+        # display waiting for verification message to user
+        feedback = 'awaiting verification'
+        return render(request, 'abavblink/newjob.html', {
+            'feedback': feedback
+        }) 
     return render(request, 'abavblink/newjob.html', {})
 
 
@@ -97,7 +101,7 @@ def jobslist(request, link, page):
     user = request.user
     # get jobs list for jobs page
     if link == 'all-jobs':
-        jobs = Job.objects.all().order_by('id').reverse()
+        jobs = Job.objects.filter(verified=True).order_by('id').reverse()
     # get saved jobs for account page
     if link == 'posted':
         jobs = Job.objects.filter(user_id=user).order_by('id').reverse()
@@ -105,7 +109,7 @@ def jobslist(request, link, page):
     if link == 'saved':
         jobs = user.saved_jobs.all()
 
-    paginator = Paginator(jobs, 10)
+    paginator = Paginator(jobs, 2)
     data = [job.serialize() for job in paginator.page(page)]
     data.append({"has_next": paginator.page(page).has_next()})
     data.append({"has_previous": paginator.page(page).has_previous()})
